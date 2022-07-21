@@ -72,7 +72,7 @@ function start() {
 
 function seletDate(needClick) {
     // 选择日期
-    log('seletDate')
+    log('seletDate, month: ' + ch_month)
     if (needClick) {
         id('tvDepartingDate').findOne().parent().clickCenter()
         waitForActivity('com.cathaypacific.icecalendar.CalendarActivity')
@@ -86,6 +86,7 @@ function seletDate(needClick) {
         title = titles[i]
         log('title: ' + title.text())
         month = title.text().split(' ')[0]
+        log('month: ' + month)
         if (ch_month[date.getMonth()] == month) {
             log('找到目标日期')
             title.parent().findOne(text(date.getDate() + '').enabled(true)).click()
