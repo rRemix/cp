@@ -27,7 +27,7 @@ try {
 
 let ch_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 function start() {
-    log('start, args: ' + args)
+    log('start, args: ' + JSON.stringify(args))
     ret = app.launchApp('国泰航空')
     if (!ret) {
         toastLog('启动app失败')
