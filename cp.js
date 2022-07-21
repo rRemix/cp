@@ -17,40 +17,11 @@ let args = {
     email: storage.get(key_email, ''),
 }
 
-function prepare() {
-    log('args: ' + args)
-    events.broadcast.emit("setEnable", "false")
-    try {
-        // 检查是否可用
-        var url = "https://api.github.com/repos/rRemix/cp/releases/latest"
-        var r = http.get(url, {
-            headers: 'token: 2c8ad2bad2824856e919345f47cfdf8c3b0603cc',
-        })
-
-        if (JSON.parse(r.body.string())['tag_name'] == 'v1.0.1') {
-            // 下载js文件
-            url = 'https://raw.githubusercontent.com/rRemix/cp/main/cp.js'
-            r = http.get(url)
-            file = 'cp.js'
-            content = r.body.string()
-            log('content: ' + content)
-            files.write(file, content)
-
-            start()
-            events.broadcast.emit("stop")
-        } else {
-            events.broadcast.emit("setEnable", "true")
-            log('invalid tag')
-        }
-    } catch (e) {
-        log('运行错误: ' + e)
-        events.broadcast.emit("setEnable", "true")
-    }
-}
+start()
 
 let ch_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 function start() {
-    log('start')
+    log('start, args: ' + args)
     ret = app.launchApp('国泰航空')
     if (!ret) {
         toastLog('启动app失败')
