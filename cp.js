@@ -74,13 +74,13 @@ function seletDate(needClick) {
     // 选择日期
     log('seletDate')
     if (needClick) {
-        id('tvDepartingDate').findOne().clickCenter()
+        id('tvDepartingDate').findOne().parent().clickCenter()
         waitForActivity('com.cathaypacific.icecalendar.CalendarActivity')
     }
 
     date = new Date(args.date)
     titles = id('title').find()
-    log('titles: ' + titles)
+    log('titles: ' + titles + ', month: ' + date.getMonth())
     found = false
     for (var i = 0; i < titles.size(); i++) {
         title = titles[i]
