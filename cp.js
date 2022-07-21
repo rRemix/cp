@@ -57,11 +57,13 @@ function start() {
     id('etAirports').findOne().setText(args.ori)
     id('tvContent').findOne().click()
     sleep(1000)
+    log('1')
 
     id('rlDestination').findOne().click()
     id('etAirports').findOne().setText(args.dest)
+    log('2')
     id('tvContent').findOne().click()
-    sleep(1000)
+    log('2')
 
     seletDate(true)
 
@@ -70,7 +72,7 @@ function start() {
 
 function seletDate(needClick) {
     // 选择日期
-    log('选择日期')
+    log('seletDate')
     if (needClick) {
         id('tvDepartingDate').findOne().clickCenter()
         waitForActivity('com.cathaypacific.icecalendar.CalendarActivity')
