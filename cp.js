@@ -25,7 +25,6 @@ try {
     events.broadcast.emit("stop")
 }
 
-let ch_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 function start() {
     log('start, args: ' + JSON.stringify(args))
     ret = app.launchApp('国泰航空')
@@ -70,11 +69,13 @@ function start() {
     search()
 }
 
+let ch_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 function seletDate(needClick) {
     // 选择日期
     log('seletDate, month: ' + ch_month)
     if (needClick) {
         id('tvDepartingDate').findOne().parent().clickCenter()
+        log('click')
         waitForActivity('com.cathaypacific.icecalendar.CalendarActivity')
     }
 
