@@ -70,6 +70,7 @@ function start() {
 
 function seletDate(needClick) {
     // 选择日期
+    log('选择日期')
     if (needClick) {
         id('tvDepartingDate').findOne().clickCenter()
         waitForActivity('com.cathaypacific.icecalendar.CalendarActivity')
