@@ -78,8 +78,9 @@ function seletDate(needClick) {
         waitForActivity('com.cathaypacific.icecalendar.CalendarActivity')
     }
 
-    date = new Date(storage.get(key_date, ''))
+    date = new Date(args.date)
     titles = id('title').find()
+    log('titles: ' + titles)
     found = false
     for (var i = 0; i < titles.size(); i++) {
         title = titles[i]
