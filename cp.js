@@ -54,12 +54,12 @@ function start() {
     // 选择始发地和目的地
     log('选择始发地')
     id('rlOrigin').findOne().click()
-    id('etAirports').findOne().setText(storage.get(key_ori, ''))
+    id('etAirports').findOne().setText(args.ori)
     id('tvContent').findOne().click()
     sleep(1000)
 
     id('rlDestination').findOne().click()
-    id('etAirports').findOne().setText(storage.dest(key_dest, ''))
+    id('etAirports').findOne().setText(args.dest)
     id('tvContent').findOne().click()
     sleep(1000)
 
