@@ -17,7 +17,13 @@ let args = {
     email: storage.get(key_email, ''),
 }
 
-start()
+try {
+    start()
+} catch (err) {
+    log('运行错误: ' + err)
+} finally {
+    events.broadcast.emit("stop")
+}
 
 let ch_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 function start() {
